@@ -1,0 +1,367 @@
+<!doctype html><html lang="id"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Portofolio Eruu Amamiya</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@500&display=swap">
+<style>
+/* Layout: tema tinta manga hitam-putih mengikuti foto profil. Header dua kolom (nama + foto 1:1), proyek disusun sebagai lembar spesifikasi. */
+:root {
+  --bg: #0b0b0d;
+  --surface: #151518;
+  --ink: #f2f2f3;
+  --muted: #9b9ba3;
+  --rule: #2c2c31;
+  --accent: #ff3b30;
+  --accent-ink: #0b0b0d;
+  --code-bg: #1f1f24;
+  --dot: rgba(255, 255, 255, 0.07);
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-jp: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #efeff1;
+    --surface: #ffffff;
+    --ink: #0b0b0d;
+    --muted: #595962;
+    --rule: #c9c9d0;
+    --accent: #d7261f;
+    --accent-ink: #ffffff;
+    --code-bg: #e2e2e7;
+    --dot: rgba(0, 0, 0, 0.07);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #efeff1;
+  --surface: #ffffff;
+  --ink: #0b0b0d;
+  --muted: #595962;
+  --rule: #c9c9d0;
+  --accent: #d7261f;
+  --accent-ink: #ffffff;
+  --code-bg: #e2e2e7;
+  --dot: rgba(0, 0, 0, 0.07);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 40px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1000px; margin-inline: auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Header */
+header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 32px 48px;
+  align-items: end;
+  padding-block: 24px 56px;
+}
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.2rem, 11vw, 6.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 16px 0 24px;
+  overflow-wrap: anywhere;
+}
+h1 span { color: var(--accent); }
+.jp {
+  font-family: var(--font-jp);
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin: -8px 0 20px;
+}
+.intro { max-width: 52ch; font-size: 1.12rem; color: var(--muted); margin: 0 0 28px; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  border-radius: 0;
+}
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.portrait {
+  width: 100%;
+  max-width: 340px;
+  justify-self: end;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--ink);
+  background-color: var(--surface);
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.4px);
+  background-size: 9px 9px;
+  box-shadow: 10px 10px 0 var(--accent);
+}
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Projects */
+.projects-head { border-top: 3px solid var(--ink); padding-top: 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 24px 48px;
+  padding-block: 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.project h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+.kind { color: var(--muted); margin: 0 0 20px; font-size: 0.95rem; }
+dl.meta { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 14px; }
+dl.meta dt { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding-top: 2px; }
+dl.meta dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.project p { margin: 0 0 16px; max-width: 62ch; }
+.project ul { margin: 0 0 20px; padding-left: 1.1em; max-width: 62ch; }
+.project li { margin-bottom: 8px; }
+.project li::marker { color: var(--accent); }
+.project code { font-family: var(--font-mono); font-size: 0.9em; background: var(--code-bg); padding: 1px 6px; }
+.cmds { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+.cmds li { margin: 0; font-family: var(--font-mono); font-size: 13px; background: var(--code-bg); padding: 4px 10px; }
+.cmds li b { font-weight: 500; color: var(--accent); }
+.cta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-mono); font-size: 13.5px; }
+.cta a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.cta a:hover { color: var(--accent); }
+
+/* Dot matrix demo */
+.demo { background: var(--surface); border: 1px solid var(--rule); padding: 18px; margin: 4px 0 22px; max-width: 62ch; }
+.demo label { display: block; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; }
+.field { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.field input {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  padding: 8px 10px;
+  width: 11ch;
+  min-width: 0;
+}
+.field .domain { font-family: var(--font-mono); color: var(--muted); }
+.count { font-family: var(--font-mono); font-size: 13.5px; margin: 14px 0 8px; font-variant-numeric: tabular-nums; }
+.count b { color: var(--accent); font-weight: 500; }
+.variants { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 4px 16px; font-family: var(--font-mono); font-size: 13.5px; }
+.variants li { margin: 0; overflow-wrap: anywhere; }
+.variants .more { color: var(--muted); }
+
+footer { padding-top: 32px; display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 760px) {
+  header { grid-template-columns: minmax(0, 1fr); padding-bottom: 40px; }
+  .portrait { order: -1; justify-self: start; max-width: 200px; box-shadow: 7px 7px 0 var(--accent); }
+  .project { grid-template-columns: minmax(0, 1fr); padding-block: 32px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: background-color 0.15s, color 0.15s; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">Portofolio · github.com/eruuamamiya</div>
+      <h1>Eruu Amamiya<span>.</span></h1>
+      <p class="jp" lang="ja">エル アマミヤ</p>
+      <p class="intro">Saya membuat aplikasi Android, bot WhatsApp, dan situs streaming anime. Di bawah ini tiga proyek yang saya kerjakan, lengkap dengan cara kerjanya.</p>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/eruuamamiya" target="_blank" rel="noopener">Profil GitHub</a>
+        <a class="btn" href="https://v1.nekostream.online" target="_blank" rel="noopener">v1.nekostream.online</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="src/image.png" width="640" height="640" alt="Foto profil eruuamamiya: ilustrasi anime hitam putih, sosok berambut acak dilihat dari samping">
+    </div>
+  </header>
+
+  <main>
+    <div class="projects-head eyebrow"><span>Proyek</span><span>3 repositori</span></div>
+
+    <article class="project" id="mailmatrix">
+      <div>
+        <h2>Mail Matrix</h2>
+        <p class="kind">Generator email untuk Android</p>
+        <dl class="meta">
+          <dt>Platform</dt><dd>Android</dd>
+          <dt>Bahasa</dt><dd>Java</dd>
+          <dt>UI</dt><dd>XML native</dd>
+          <dt>Riwayat</dt><dd>6 commit</dd>
+        </dl>
+      </div>
+      <div>
+        <p>Satu alamat Gmail bisa menjadi ribuan alamat berbeda yang semuanya masuk ke kotak masuk yang sama. Mail Matrix membuatnya dalam sekali ketik, berguna untuk mengelola banyak akun game, media sosial, atau pengujian software.</p>
+        <ul>
+          <li><b>Plus Addressing:</b> menambahkan tag ke alamat, misalnya <code>user+tag@gmail.com</code>, dengan kategori cepat untuk platform populer.</li>
+          <li><b>Dot Trick:</b> menghasilkan semua variasi titik pada nama pengguna dengan algoritma rekursif berbasis bitmask, sebanyak 2<sup>n-1</sup> kombinasi.</li>
+          <li><b>Anti-crash:</b> nama pengguna dibatasi 15 karakter (maksimal 16.384 kombinasi) supaya aplikasi tidak kehabisan memori di perangkat Android.</li>
+          <li><b>Pratinjau langsung dan salin sekali ketuk</b> untuk setiap hasil.</li>
+        </ul>
+
+        <div class="demo">
+          <label for="prefix">Coba mesin titiknya</label>
+          <div class="field">
+            <input id="prefix" type="text" value="abc" maxlength="15" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text" aria-describedby="dotcount">
+            <span class="domain">@gmail.com</span>
+          </div>
+          <div class="count" id="dotcount" aria-live="polite"></div>
+          <ul class="variants" id="variants"></ul>
+        </div>
+
+        <div class="cta"><a href="https://github.com/eruuamamiya/MailMatrix/releases/tag/MailMatrix" target="_blank" rel="noopener">Unduh APK v1.1.0 ↗</a></div>
+      </div>
+    </article>
+
+    <article class="project" id="wa-anonymous-bot">
+      <div>
+        <h2>WhatsApp Anonymous Chat Bot</h2>
+        <p class="kind">Bot obrolan anonim acak</p>
+        <dl class="meta">
+          <dt>Platform</dt><dd>WhatsApp</dd>
+          <dt>Runtime</dt><dd>Node.js 16+</dd>
+          <dt>Library</dt><dd>@whiskeysockets/baileys</dd>
+          <dt>Riwayat</dt><dd>22 commit</dd>
+        </dl>
+      </div>
+      <div>
+        <p>Bot yang mempertemukan dua pengguna secara acak untuk mengobrol tanpa membuka identitas, seperti fitur random chat di Telegram. Nomor WhatsApp tiap pengguna disembunyikan dari lawan bicaranya.</p>
+        <ul>
+          <li><b>Antrean pencarian</b> yang mencocokkan dua pengguna dengan cepat.</li>
+          <li><b>Dukungan media:</b> teks, gambar, video, dan stiker diteruskan antar pengguna.</li>
+          <li><b>Ringan:</b> cukup untuk berjalan di server mini seperti STB (Set Top Box) berbasis Armbian atau VPS kecil.</li>
+        </ul>
+        <ul class="cmds" aria-label="Perintah bot">
+          <li><b>/start</b> atau <b>/search</b> cari pasangan</li>
+          <li><b>/next</b> ganti pasangan</li>
+          <li><b>/stop</b> keluar</li>
+        </ul>
+        <div class="cta">
+          <a href="https://github.com/eruuamamiya/Wa-Anonymous-Bot" target="_blank" rel="noopener">Lihat kode di GitHub ↗</a>
+          <a href="https://wa.me/6285608637146?text=/start" target="_blank" rel="noopener">Coba botnya di WhatsApp ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="nekostream">
+      <div>
+        <h2>NekoStream</h2>
+        <p class="kind">Platform streaming anime</p>
+        <dl class="meta">
+          <dt>Repo</dt><dd>NekoStreamv1</dd>
+          <dt>Stack</dt><dd>Node.js, HTML</dd>
+          <dt>Riwayat</dt><dd>2 commit</dd>
+        </dl>
+      </div>
+      <div>
+        <p>Situs streaming anime dengan dua versi yang bisa dibuka langsung. Repositori NekoStreamv1 menyimpan kode server, bot, dan halaman utamanya.</p>
+        <ul>
+          <li>Daftar Anime dengan judul series yang sudah dirapikan, termasuk pencocokan judul ganda lewat kesamaan poster.</li>
+          <li>Judul batch tetap dipertahankan karena dipakai untuk mengunduh video.</li>
+          <li>Dua situs: versi pertama di <code>nekostream.online</code> dan versi baru di <code>v1.nekostream.online</code>.</li>
+        </ul>
+        <div class="cta">
+          <a href="https://nekostream.online" target="_blank" rel="noopener">nekostream.online ↗</a>
+          <a href="https://v1.nekostream.online" target="_blank" rel="noopener">v1.nekostream.online ↗</a>
+          <a href="https://github.com/eruuamamiya/NekoStreamv1" target="_blank" rel="noopener">Kode di GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 eruuamamiya</span>
+    <a href="https://github.com/eruuamamiya" target="_blank" rel="noopener">github.com/eruuamamiya</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var input = document.getElementById('prefix');
+  var countEl = document.getElementById('dotcount');
+  var list = document.getElementById('variants');
+  var SHOW = 8;
+
+  // Setiap celah di antara dua karakter bisa berisi titik atau tidak: 2^(n-1) kemungkinan.
+  function variant(s, mask) {
+    var out = s.charAt(0);
+    for (var i = 1; i < s.length; i++) {
+      if (mask & (1 << (i - 1))) out += '.';
+      out += s.charAt(i);
+    }
+    return out;
+  }
+
+  function render() {
+    var s = input.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+    list.textContent = '';
+    if (s.length === 0) {
+      countEl.textContent = 'Ketik nama pengguna untuk melihat variasinya.';
+      return;
+    }
+    var total = Math.pow(2, s.length - 1);
+    countEl.innerHTML = s.length + ' karakter → 2<sup>' + (s.length - 1) + '</sup> = <b>' + total.toLocaleString('id-ID') + '</b> variasi';
+    var n = Math.min(total, SHOW);
+    for (var m = 0; m < n; m++) {
+      var li = document.createElement('li');
+      li.textContent = variant(s, m) + '@gmail.com';
+      list.appendChild(li);
+    }
+    if (total > SHOW) {
+      var more = document.createElement('li');
+      more.className = 'more';
+      more.textContent = '+ ' + (total - SHOW).toLocaleString('id-ID') + ' lainnya';
+      list.appendChild(more);
+    }
+  }
+
+  input.addEventListener('input', render);
+  render();
+})();
+</script>
+
+<script src="server.js"></script>
+
+</body></html>
